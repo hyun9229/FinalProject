@@ -16,10 +16,10 @@
 <c:set var="root" value="<%=request.getContextPath() %>"/>
 <style type="text/css">
 .logo{
-  position: absolute;
   width: 100px;
-  left: 50px;
-  top: 15px;
+  height: 30px;
+  left: 300px;
+  top: 15px; 
 }
 </style>
 </head>
@@ -38,7 +38,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button> -->
 
-            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault" style="margin-left: 500px;">
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="${root }/petsitter" data-bs-toggle="dropdown" aria-expanded="false">돌봄 서비스</a>
@@ -85,9 +85,11 @@
                 <span class="nav-item">
                     <a class="btn-solid-sm" href="#contact">문의하기</a>
                 </span>
+                
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+
 </body>
 </html>
