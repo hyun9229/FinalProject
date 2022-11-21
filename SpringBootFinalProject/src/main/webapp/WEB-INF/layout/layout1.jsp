@@ -60,7 +60,7 @@ div.layout div.menu{
   position: absolute;
   top: 50px;
   width: 100%;
-  height: 50px;
+  height: 50px; 
 }
 
 div.layout div.main{
@@ -77,8 +77,8 @@ div.layout div.main{
     <tiles:insertAttribute name="title"/> 
   </div>
   <div class="menu">
-    <tiles:insertAttribute name="menu"/> 
-  </div>
+    <tiles:insertAttribute name="menu"/>  
+  </div> 
   <div class="main">
     <tiles:insertAttribute name="main"/> 
   </div>
