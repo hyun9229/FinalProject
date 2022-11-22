@@ -10,6 +10,9 @@
   <select id="getName" resultType="String" parameterType="String">
     select mem_name from member where mem_id=#{mem_id}
   </select>
+  <select id="getNum" resultType="String" parameterType="String">
+    select mem_num from member where mem_id=#{mem_id}
+  </select>
   <select id="getIdPassCheck" resultType="int" parameterType="HashMap">
     select count(*) from member where mem_id=#{mem_id} and mem_pass=#{mem_pass}
   </select>
