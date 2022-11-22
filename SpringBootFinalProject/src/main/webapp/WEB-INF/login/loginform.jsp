@@ -249,7 +249,7 @@ function check(){
       </div>
       <div class="u-form-group">
         <input type="checkbox" name="cbsave"
-            ${sessionScope.saveok==null?"":"checked"}> Keep Login
+            ${sessionScope.saveok==null?"":"checked"}> Save ID
       </div>
       <div class="u-form-group">
         <button type="submit">Log in</button>
