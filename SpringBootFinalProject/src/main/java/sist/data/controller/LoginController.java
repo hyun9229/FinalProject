@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import sist.data.dto.MemberDto;
+import sist.data.service.AnimalService;
 import sist.data.service.MemberService;
 
 @Controller
@@ -17,7 +18,7 @@ public class LoginController {
 
 	@Autowired
 	MemberService service;
-	
+		
 	@GetMapping("/login/main")
 	public String form(HttpSession session,Model model) {
 		
@@ -59,7 +60,7 @@ public class LoginController {
 			
 			return "redirect:main";
 		}else {
-			return "/member/passfail";
+			return "/login/passfail";
 		}			
 	}
 	
@@ -69,4 +70,6 @@ public class LoginController {
 		session.removeAttribute("loginok");
 		return "redirect:/";
 	}
+	
+	
 }

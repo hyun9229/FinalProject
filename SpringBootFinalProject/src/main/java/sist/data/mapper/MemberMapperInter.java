@@ -14,6 +14,8 @@ public interface MemberMapperInter {
 	public int getSearchId(String mem_id);
 	//id에 따른 name 반환
 	public String getName(String mem_id); 
+	//id에 따른 num 반환
+	public String getNum(String mem_id);
 	//parameter가 2개 이상이면 map 또는 Hashmap
 	//key값은 무조건 String / 여기서 보낼 id,password도 String
 	public int getIdPassCheck(Map<String, String> map); 
