@@ -13,4 +13,5 @@ public interface MemberServiceInter {
 	public void deleteMember(String mem_num);
 	public MemberDto getDataByNum(String mem_num);
 	public void updateMember(MemberDto dto);
+	public int getMaxNum();
 }

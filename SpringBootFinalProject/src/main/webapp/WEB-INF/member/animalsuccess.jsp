@@ -16,8 +16,10 @@
 </head>
 <body>
 <script type="text/javascript">
-  alert("회원가입 되셨습니다.");
-  location.replace("/member/animalRegister?mem_num=${mem_num}");
+  if(confirm("반려동물 등록이 완료되었습니다.\n로그인하시겠습니까?"))
+	  location.replace("/login/main");
+  else
+	  location.replace("/");
 </script>
 </body>
 </html>

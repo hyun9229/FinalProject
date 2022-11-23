@@ -1,10 +1,12 @@
 package sist.data.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import sist.data.dto.AnimalDto;
 import sist.data.mapper.AnimalMapperInter;
 
+@Service
 public class AnimalService implements AnimalServiceInter {
 
 	@Autowired
