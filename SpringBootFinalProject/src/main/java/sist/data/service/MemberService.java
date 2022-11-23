@@ -73,6 +73,12 @@ public class MemberService implements MemberServiceInter {
 		mapperInter.updateMember(dto);
 	}
 
+	@Override
+	public int getMaxNum() {
+		// TODO Auto-generated method stub
+		return mapperInter.getMaxNum();
+	}
+
 	
 
 }

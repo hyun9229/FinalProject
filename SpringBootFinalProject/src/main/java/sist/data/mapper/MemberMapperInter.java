@@ -27,4 +27,6 @@ public interface MemberMapperInter {
 	public MemberDto getDataByNum(String mem_num);
 	//정보 수정
 	public void updateMember(MemberDto dto);
+	//maxnum 구하기
+	public int getMaxNum();
 }
