@@ -27,6 +27,7 @@
     <link href="/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="/css/swiper.css" rel="stylesheet">
 	<link href="/css/styles.css" rel="stylesheet">
+	<link href="/css/container.css" rel="stylesheet">
 
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">

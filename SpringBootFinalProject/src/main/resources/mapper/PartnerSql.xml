@@ -3,9 +3,9 @@
 <mapper namespace="sist.data.mapper.PartnerServiceMapperInter">
 
    <insert id="insertPartner" parameterType="partner">
-     insert into partner (partner_name,partner_gender,partner_birth,partner_phone,partner_addr,partner_smoking,
+     insert into partner (mem_num,partner_name,partner_gender,partner_birth,partner_phone,partner_addr,partner_smoking,
      partner_job,partner_date,partner_time,partner_exp_cat,partner_exp_dog,partner_exp)
-     values(#{partner_name},#{partner_gender},#{partner_birth},#{partner_phone},#{partner_addr},#{partner_smoking},
+     values(#{mem_num},#{partner_name},#{partner_gender},#{partner_birth},#{partner_phone},#{partner_addr},#{partner_smoking},
      #{partner_job},#{partner_date},#{partner_time},#{partner_exp_cat},#{partner_exp_dog},#{partner_exp})
    </insert>
   

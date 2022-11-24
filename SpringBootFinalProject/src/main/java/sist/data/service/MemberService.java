@@ -79,6 +79,18 @@ public class MemberService implements MemberServiceInter {
 		return mapperInter.getMaxNum();
 	}
 
+	@Override
+	public void updateTrainerStatus(String mem_num) {
+		// TODO Auto-generated method stub
+		mapperInter.updateTrainerStatus(mem_num);
+	}
+
+	@Override
+	public void updatePetsitterStatus(String mem_num) {
+		// TODO Auto-generated method stub
+		mapperInter.updatePetsitterStatus(mem_num);
+	}
+
 	
 
 }

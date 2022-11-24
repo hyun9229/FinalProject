@@ -29,4 +29,8 @@ public interface MemberMapperInter {
 	public void updateMember(MemberDto dto);
 	//maxnum 구하기
 	public int getMaxNum();
+	//훈련사로 status update(status=1)
+	public void updateTrainerStatus(String mem_num);
+	//펫시터로 status update(status=2)
+	public void updatePetsitterStatus(String mem_num);
 }

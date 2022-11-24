@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import sist.data.dto.MemberDto;
-import sist.data.service.AnimalService;
 import sist.data.service.MemberService;
 
 @Controller
@@ -44,7 +43,8 @@ public class LoginController {
 	public String loginProc(@RequestParam String mem_id,
 			@RequestParam String mem_pass,
 			@RequestParam(required = false) String cbsave,
-			HttpSession session) {
+			HttpSession session,
+			Model model) {
 		
 		int check=service.getIdPassCheck(mem_id, mem_pass);
 		
@@ -57,8 +57,9 @@ public class LoginController {
 			session.setAttribute("loginok", "yes");
 			session.setAttribute("saveok", cbsave);
 			session.setAttribute("loginname", dto.getMem_name());
+						
+		    return "redirect:main";
 			
-			return "redirect:main";
 		}else {
 			return "/login/passfail";
 		}			

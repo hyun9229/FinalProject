@@ -9,6 +9,7 @@ import lombok.Data;
 public class TrainerDto {
 	
 	private String trainer_num;
+	private String mem_num;
 	private String trainer_name;
 	private String trainer_gender;
 	private String trainer_birth;

@@ -18,7 +18,7 @@
   position:relative;
   margin: 10px auto;
   width: 500px;
-  height: 380px;
+  height: 650px;
   background-color: #fff;
   padding: 10px;
   border-radius: 3px;
@@ -151,20 +151,6 @@
 <script type="text/javascript">
 $(function(){
 	
-	$(".email-signup").hide();
-	$("#signup-box-link").click(function(){
-	  $(".email-login").fadeOut(100);
-	  $(".email-signup").delay(100).fadeIn(100);
-	  $("#login-box-link").removeClass("active");
-	  $("#signup-box-link").addClass("active");
-	});
-	$("#login-box-link").click(function(){
-	  $(".email-login").delay(100).fadeIn(100);;
-	  $(".email-signup").fadeOut(100);
-	  $("#login-box-link").addClass("active");
-	  $("#signup-box-link").removeClass("active");
-	});
-	
 	//중복체크 버튼클릭시 아이디 체크
 	$("#btnidcheck").click(function(){
 		
@@ -225,54 +211,11 @@ function check(){
 <body>
   <div class="login-box">
     <div class="lb-header">
-      <a href="#" class="active" id="login-box-link">Login</a>
-      <a href="#" id="signup-box-link">Sign Up</a>
+      <a href="#" class="active" id="signup-box-link">일반회원</a>
     </div>
     
-    <form action="loginprocess" method="post" class="email-login">
-    
-    <div class="social-login">
-      <a href="#">
-        <i class="fa fa-facebook fa-lg"></i>
-        페이스북 로그인
-      </a>
-      <a href="#">
-        <i class="fa fa-google-plus fa-lg"></i>
-        구글 로그인
-      </a> 
-    </div>
-    
-      <div class="u-form-group">
-        <input type="text" name="mem_id" placeholder="ID" autofocus="autofocus" required="required" 
-        value="${sessionScope.saveok==null?"":sessionScope.myid }">
-      </div>
-      <div class="u-form-group">
-        <input type="password" name="mem_pass" placeholder="Password" autofocus="autofocus" required="required">
-      </div>
-      <div class="u-form-group">
-        <input type="checkbox" name="cbsave"
-            ${sessionScope.saveok==null?"":"checked"}> Save ID
-      </div>
-      <div class="u-form-group">
-        <button type="submit">Log in</button>
-      </div>
-      <div class="u-form-group">
-        <a href="#" class="forgot-password">Forgot password?</a>
-      </div>
-    </form>
-    
-    <form class="email-signup">
-      <div class="social-login">
-      <a href="../member/normal">
-        일반회원
-      </a>
-      <a href="../member/partner">
-        파트너회원<br>(훈련사,펫시터)
-      </a> 
-    </div>
-    </form>
-    
-    <!-- <form action="insert" method="post" onsubmit="return check()" class="email-signup">
+    <!-- 일반회원 -->
+    <form action="insert" method="post" onsubmit="return check()" class="email-signup">
       <div class="u-form-group">
         <input type="text" placeholder="ID" id="id" name="mem_id" required="required"/>
       </div>
@@ -307,7 +250,7 @@ function check(){
       <div class="u-form-group">
         <button type="submit">Sign Up</button>
       </div>
-    </form> -->
+    </form>
   </div>       
 
 </body>
