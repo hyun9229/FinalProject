@@ -63,21 +63,21 @@ img{
 </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
-    <div class="bg">
+
+  <div class="bg">
       <img src="${root }/image/top_banner.png" class="bannerimg">
       <div class="text">
         <p class="title">반려생활<br><br><br>파트너</p><br><br>
         <p class="subtitle">반려가족의 하루에 와요가 함께하겠습니다.</p>
       </div>
     </div>
-
     
-    
-    <!-- Back To Top Button -->
+  <!-- Back To Top Button -->
     <button onclick="topFunction()" id="myBtn">
         <img src="images/up-arrow.png" alt="alternative">
     </button>
     <!-- end of back to top button -->
+    
     	
 </body>
 </html>

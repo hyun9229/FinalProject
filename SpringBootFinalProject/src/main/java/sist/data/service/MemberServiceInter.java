@@ -14,4 +14,6 @@ public interface MemberServiceInter {
 	public MemberDto getDataByNum(String mem_num);
 	public void updateMember(MemberDto dto);
 	public int getMaxNum();
+	public void updateTrainerStatus(String mem_num);
+	public void updatePetsitterStatus(String mem_num);
 }

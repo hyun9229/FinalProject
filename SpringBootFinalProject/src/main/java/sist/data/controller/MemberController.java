@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -21,8 +22,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import sist.data.dto.AnimalDto;
 import sist.data.dto.MemberDto;
+import sist.data.dto.PartnerDto;
+import sist.data.dto.TrainerDto;
 import sist.data.service.AnimalService;
 import sist.data.service.MemberService;
+import sist.data.service.PartnerService;
+import sist.data.service.TrainerService;
 
 @Controller
 public class MemberController {
@@ -32,6 +37,12 @@ public class MemberController {
 	
 	@Autowired
 	AnimalService aservice;
+	
+	@Autowired
+	PartnerService pservice;
+	
+	@Autowired
+	TrainerService tservice;
 	
 	//Id체크
 	@GetMapping("/member/idcheck")
@@ -46,8 +57,26 @@ public class MemberController {
 	return map;
 	}
 	
+	//일반회원가입
+	@GetMapping("/member/normal")
+	public String normalform() {
+		
+		return "/member/normalform";
+	}
+	
+	//파트너회원가입(훈련사,펫시터)
+	@GetMapping("/member/partner")
+	public String partnerform() {
+			
+		return "/member/partnerform";
+	}
+		
 	@PostMapping("/member/insert")
-	public String insert(@ModelAttribute MemberDto dto,Model model) {
+	public String insert(@ModelAttribute MemberDto dto,Model model,@RequestParam int status) {
+				
+		//status값 dto에 넣기
+		MemberDto mdto=new MemberDto();
+		mdto.setStatus(status);
 		
 		service.insertMember(dto);
 		
@@ -96,6 +125,29 @@ public class MemberController {
 		aservice.insertAnimal(dto);
 		
 		return "/member/animalsuccess";
+	}
+	
+	//admin으로 로그인 시 applylist 볼수 있게
+	@GetMapping("/member/applylist")
+	public String goApplyList(Model model) {
+		
+		//관리자일 경우 로그인 후 main에 파트너 지원리스트 뜨도록
+		List<TrainerDto> tlist=tservice.TrainerList();
+		List<PartnerDto> plist=pservice.PartnerList();
+		
+		model.addAttribute("tlist", tlist);
+		model.addAttribute("plist", plist);
+		
+		return "/member/applylist";
+	}
+	
+	//훈련사 status 업데이트
+	@GetMapping("/member/updateTrainerStatus")
+	@ResponseBody
+	public void updateTrainerStatus(String mem_num) {
+		
+		service.updateTrainerStatus(mem_num);
+		
 	}
 	
 

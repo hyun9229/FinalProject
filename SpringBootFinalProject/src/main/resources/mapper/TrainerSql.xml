@@ -3,13 +3,17 @@
 <mapper namespace="sist.data.mapper.TrainerServiceMapperInter">
 
    <insert id="insertTrainer" parameterType="trainer">
-      insert into trainer (trainer_name,trainer_gender,trainer_birth,trainer_phone,trainer_addr,trainer_smoking,
+      insert into trainer (mem_num,trainer_name,trainer_gender,trainer_birth,trainer_phone,trainer_addr,trainer_smoking,
       trainer_photo,trainer_date,trainer_loc,trainer_certificate,trainer_career,trainer_content) 
-      values(#{trainer_name},#{trainer_gender},#{trainer_birth},#{trainer_phone},#{trainer_addr},#{trainer_smoking},
+      values(#{mem_num},#{trainer_name},#{trainer_gender},#{trainer_birth},#{trainer_phone},#{trainer_addr},#{trainer_smoking},
       #{trainer_photo},#{trainer_date},#{trainer_loc},#{trainer_certificate},#{trainer_career},#{trainer_content})
    </insert>
   
    <select id="TrainerList" resultType="trainer">
       select * from trainer 
+   </select>
+   
+   <select id="getMemNum" resultType="String" parameterType="String">
+     select mem_num from trainer where trainer_num=#{trainer_num}
    </select>
 </mapper>

@@ -152,6 +152,5 @@ font-size: 25px;
 
 </div>
 <img alt="" src="${root }/image/t1.png" width="700px;" height="200px;" id="img3">
-
 </body>
 </html>

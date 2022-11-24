@@ -129,6 +129,8 @@ div.jiwon{
 <div class="box1">
 	<fieldset>
 	<legend style="font-size: 30px;">개인 정보</legend><br><br>
+	
+	<input type="hidden" name="mem_id" value="${sessionScope.myid }">
 		
 		<label for="name"><b style="font-size: 20px;">이름</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			 &emsp;&emsp;&emsp;&emsp;&emsp;
@@ -136,7 +138,7 @@ div.jiwon{
 				
 		<label for="mail"><b style="font-size: 20px;">생년월일</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;
 			 &emsp;&emsp;&emsp;&nbsp;
-			 <input type="text" name="trainer_birth" placeholder="예)19940101" class="form-control" required="required">&emsp;<span style="color: gray; font-size: 13px; font-style: italic;">03년생부터(만 18세이상) 지원이 가능합니다.</span><br><br>
+			 <input type="text" name="trainer_birth" placeholder="예)1994-01-01" class="form-control" required="required">&emsp;<span style="color: gray; font-size: 13px; font-style: italic;">03년생부터(만 18세이상) 지원이 가능합니다.</span><br><br>
 					
 					
         <label class="test_obj"><b style="font-size: 20px;">성별</b> &nbsp;<span style="color: red; font-size: 25px;">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

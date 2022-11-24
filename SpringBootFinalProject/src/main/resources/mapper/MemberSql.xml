@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sist.data.mapper.MemberMapperInter">
   <insert id="insertMember" parameterType="member">
-    insert into member(mem_id,mem_pass,mem_name,mem_email,mem_birth,mem_phone,mem_addr,mem_point) values(#{mem_id},#{mem_pass},#{mem_name},#{mem_email},#{mem_birth},#{mem_phone},#{mem_addr},5000)
+    insert into member(mem_id,mem_pass,mem_name,mem_email,mem_birth,mem_phone,mem_addr,mem_point,status) values(#{mem_id},#{mem_pass},#{mem_name},#{mem_email},#{mem_birth},#{mem_phone},#{mem_addr},5000,#{status})
   </insert>
   <select id="getSearchId" resultType="int" parameterType="String">
     select count(*) from member where mem_id=#{mem_id}
@@ -31,4 +31,10 @@
   <select id="getMaxNum" resultType="int">
     select max(mem_num) from member
   </select>
+  <update id="updateTrainerStatus" parameterType="String">
+    update member set status=1 where mem_num=#{mem_num}
+  </update>
+  <update id="updatePetsitterStatus" parameterType="String">
+    update member set status=2 where mem_num=#{mem_num}
+  </update>
 </mapper>

@@ -18,7 +18,7 @@
   position:relative;
   margin: 10px auto;
   width: 500px;
-  height: 380px;
+  height: 720px;
   background-color: #fff;
   padding: 10px;
   border-radius: 3px;
@@ -150,21 +150,7 @@
 </style>
 <script type="text/javascript">
 $(function(){
-	
-	$(".email-signup").hide();
-	$("#signup-box-link").click(function(){
-	  $(".email-login").fadeOut(100);
-	  $(".email-signup").delay(100).fadeIn(100);
-	  $("#login-box-link").removeClass("active");
-	  $("#signup-box-link").addClass("active");
-	});
-	$("#login-box-link").click(function(){
-	  $(".email-login").delay(100).fadeIn(100);;
-	  $(".email-signup").fadeOut(100);
-	  $("#login-box-link").addClass("active");
-	  $("#signup-box-link").removeClass("active");
-	});
-	
+
 	//중복체크 버튼클릭시 아이디 체크
 	$("#btnidcheck").click(function(){
 		
@@ -219,60 +205,35 @@ function check(){
 		alert("비밀번호가 서로 다릅니다. 재확인해주세요.");
 		return false;
 	}
+	
+	$("input[type=radio]").click(function(){
+	    $(this).prop("checked", true);
+	    $("form").submit();
+	})
 }
 </script>
 </head>
 <body>
   <div class="login-box">
     <div class="lb-header">
-      <a href="#" class="active" id="login-box-link">Login</a>
-      <a href="#" id="signup-box-link">Sign Up</a>
+      <a href="#" class="active" id="signup-box-link">파트너회원</a>
     </div>
     
-    <form action="loginprocess" method="post" class="email-login">
+    <!-- 파트너회원 -->
+    <form action="insert" method="post" onsubmit="return check()" class="email-signup">
     
-    <div class="social-login">
-      <a href="#">
-        <i class="fa fa-facebook fa-lg"></i>
-        페이스북 로그인
-      </a>
-      <a href="#">
-        <i class="fa fa-google-plus fa-lg"></i>
-        구글 로그인
-      </a> 
+    <!-- 훈련사,펫시터 선택 -->
+    <div class="u-form-group">
+      <input type="radio" name="status" value="1"> 훈련사&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="radio" name="status" value="2"> 펫시터
     </div>
     
-      <div class="u-form-group">
-        <input type="text" name="mem_id" placeholder="ID" autofocus="autofocus" required="required" 
-        value="${sessionScope.saveok==null?"":sessionScope.myid }">
-      </div>
-      <div class="u-form-group">
-        <input type="password" name="mem_pass" placeholder="Password" autofocus="autofocus" required="required">
-      </div>
-      <div class="u-form-group">
-        <input type="checkbox" name="cbsave"
-            ${sessionScope.saveok==null?"":"checked"}> Save ID
-      </div>
-      <div class="u-form-group">
-        <button type="submit">Log in</button>
-      </div>
-      <div class="u-form-group">
-        <a href="#" class="forgot-password">Forgot password?</a>
-      </div>
-    </form>
+    <!-- <script type="text/javascript">
+      $("input[type='radio']").click(function(){
+    	 alert($(this).val()); 
+      });
+    </script> -->
     
-    <form class="email-signup">
-      <div class="social-login">
-      <a href="../member/normal">
-        일반회원
-      </a>
-      <a href="../member/partner">
-        파트너회원<br>(훈련사,펫시터)
-      </a> 
-    </div>
-    </form>
-    
-    <!-- <form action="insert" method="post" onsubmit="return check()" class="email-signup">
       <div class="u-form-group">
         <input type="text" placeholder="ID" id="id" name="mem_id" required="required"/>
       </div>
@@ -290,10 +251,14 @@ function check(){
         <span class="passsuccess"></span>
       </div>
       <div class="u-form-group">
-        <input type="text" placeholder="Name" required="required" name="mem_name"/>
-      </div>
-      <div class="u-form-group">
         <input type="email" placeholder="Email" required="required" name="mem_email"/>
+      </div>
+      
+      <span style="color: red;">*</span>
+      <b style="font-size: 0.7em;">아래 정보는 파트너 지원 시 입력하실 정보와 동일하게 기재해주세요.</b><br>
+      
+      <div class="u-form-group" style="padding-top: 10px;">
+        <input type="text" placeholder="Name" required="required" name="mem_name"/>
       </div>
       <div class="u-form-group">
         <input type="date" name="mem_birth" required="required">
@@ -307,7 +272,7 @@ function check(){
       <div class="u-form-group">
         <button type="submit">Sign Up</button>
       </div>
-    </form> -->
+    </form>
   </div>       
 
 </body>

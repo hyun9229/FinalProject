@@ -14,5 +14,8 @@ public interface TrainerServiceMapperInter {
 	
 	//list
 	public List<TrainerDto> TrainerList();
+	
+	//trainer_num에 따른 mem_num
+	public String getMemNum(String trainer_num);
 
 }
