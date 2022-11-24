@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import sist.data.dto.ReservationDto;
 
 @Mapper
-public interface TrainerReservationMapperInter {
+public interface ReservationMapperInter {
 
 	public void insertReservation(ReservationDto dto);
 	public ReservationDto getData(String res_num);
