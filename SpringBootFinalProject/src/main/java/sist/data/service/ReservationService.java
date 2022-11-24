@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import sist.data.dto.ReservationDto;
-import sist.data.mapper.TrainerReservationMapperInter;
+import sist.data.mapper.ReservationMapperInter;
 
 @Service
-public class TrainerReservationService implements TrainerReservationServiceInter {
+public class ReservationService implements ReservationServiceInter {
 
 	@Autowired
-	TrainerReservationMapperInter mapperInter;
+	ReservationMapperInter mapperInter;
 
 	@Override
 	public void insertReservation(ReservationDto dto) {
