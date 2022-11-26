@@ -16,43 +16,94 @@
 <script type="text/javascript">
 $(function(){
 	
-	$("#updateTrainerStatus").click(function(){
+	//시작하자마자 함수호출
+	/* status(); */
+	
+	//훈련사 승인
+	$(".confirmTrainer").click(function(){
 		
-		alert($(this).attr("num"));
-		/* $.ajax({
+		 $.ajax({
 			type:"get",
-			dataType:"html",
-			data:{"mem_num":$(this).attr("num")},
 			url:"updateTrainerStatus",
+			data:{"mem_num":$(this).attr("mem_num")},
+			dataType:"html",
 			success:function(){
-				alert("ye");
+				
+				alert("승인했습니다.");
+				
 			}
-		}); */ 
+		}); 
+	});
+	
+	//펫시터 승인
+	$(".confirmPetsitter").click(function(){
+		
+		 $.ajax({
+			type:"get",
+			url:"updatePetsitterStatus",
+			data:{"mem_num":$(this).attr("mem_num")},
+			dataType:"html",
+			success:function(){
+				
+				alert("승인했습니다.");
+				
+			}
+		}); 
 	});
 });
+
+//각 status가 0이면 '승인 대기중',1이면 '승인' 되도록
+/* function status(){
+	
+	$.ajax({
+		
+		type:"get",
+		url:"status",
+		data:{"mem_num":$(.showstatus).attr("mem_num")},
+		dataType:"html",
+		success:function(res){
+			
+			var s="";
+			
+			if(res.status==0){
+				s+="<input type='button' class='confirmTrainer btn btn-warning' mem_num='${tdto.mem_num}' value='승인 대기중'>";
+			} else{
+				s+="<input type='button' class='btn btn-primary' mem_num='${tdto.mem_num}' value='승인'>";
+			}
+			
+			$(".statusbtn").html(s); 
+		}
+	});
+} */
 </script>
 </head>
 <body>
 <c:if test="${sessionScope.myid=='admin'}">
   
+  <!-- 추후 할일 -->
+  <!-- 1.각 status가 0이면 '승인 대기중',1이면 '승인' 되도록 js 수정하기 -->
+  <!-- 2.지금 너무 안예쁘므로, 추후 css 추가 -->
+  
   <!-- 훈련사 지원현황-->
-  <table class="table table-bordered" style="width: 800px;">
+  <table class="table table-bordered" style="width: 800px; margin: 0 auto;">
     <tr>
       <td colspan="5" align="center">훈련사 지원현황</td>
     </tr>
     <c:forEach var="tdto" items="${tlist }" varStatus="i">
       <tr>
-        <td>${i.count }</td>
+        <td>${i.count }
+          <input type="hidden" class="showstatus" mem_num="${tdto.mem_num }">
+        </td>
         <td>${tdto.trainer_name }</td>
         <td>${tdto.trainer_gender }</td>
         <td>${tdto.trainer_phone }</td>
-        <td><button type="button" id="updateTrainerStatus" num="${tdto.mem_num }">승인</button></td>
+        <td><input type="button" class="confirmTrainer btn btn-warning" mem_num="${tdto.mem_num }" value="승인"></td>
       </tr>
     </c:forEach>
   </table>
   
   <!-- 펫시터 지원현황 -->
-  <table class="table table-bordered" style="width: 800px;">
+  <table class="table table-bordered" style="width: 800px; margin: 0 auto;">
     <tr>
       <td colspan="5" align="center">펫시터 지원현황</td>
     </tr>
@@ -62,7 +113,7 @@ $(function(){
         <td>${pdto.partner_name }</td>
         <td>${pdto.partner_gender }</td>
         <td>${pdto.partner_phone }</td>
-        <td><button type="button" onclick="location.href=''">승인</button></td>
+        <td><input type="button" class="confirmPetsitter btn btn-warning" mem_num="${pdto.mem_num }" value="승인"></button></td>
       </tr>
     </c:forEach>
   </table>

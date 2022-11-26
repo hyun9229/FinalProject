@@ -144,10 +144,30 @@ public class MemberController {
 	//훈련사 status 업데이트
 	@GetMapping("/member/updateTrainerStatus")
 	@ResponseBody
-	public void updateTrainerStatus(String mem_num) {
+	public void updateTrainerStatus(String mem_num) {		
 		
 		service.updateTrainerStatus(mem_num);
 		
+	}
+	
+	//펫시터 status 업데이트
+	@GetMapping("/member/updatePetsitterStatus")
+	@ResponseBody
+	public void updatePetsitterStatus(String mem_num) {		
+			
+		service.updatePetsitterStatus(mem_num);
+			
+	}
+	
+	//mem_num에 따른 status
+	@GetMapping("/member/status")
+	@ResponseBody
+	public int showStatus(@RequestParam String mem_num) {
+		
+		//mem_num에 따른 status 반환
+		int status=service.getStatus(mem_num);
+				
+		return status;
 	}
 	
 

@@ -216,6 +216,9 @@ function check(){
     
     <!-- 일반회원 -->
     <form action="insert" method="post" onsubmit="return check()" class="email-signup">
+    
+    <input type="hidden" name="status" value="0">
+    
       <div class="u-form-group">
         <input type="text" placeholder="ID" id="id" name="mem_id" required="required"/>
       </div>
