@@ -48,6 +48,8 @@
                             <li><a class="dropdown-item" href="${root }/petsitter/housesitting">방문 돌봄</a></li>
                             <li><div class="dropdown-divider"></div></li>
                             <li><a class="dropdown-item" href="${root }/petsitter/dogwalking">방문 산책</a></li>
+                            <li><div class="dropdown-divider"></div></li>
+                            <li><a class="dropdown-item" href="${root }/partnerprofile/partnerlist">펫시터 프로필</a></li>
                         </ul>
                     </li>
                     
