@@ -32,4 +32,7 @@ public List<PartnerDto> PartneruuList(String partner_num);
 				 public String getDate(String mem_num);
 				 public String getTime(String mem_num);   
 			     public String getExp(String mem_num);
+			     
+			   //getDataByMem_num
+			     public PartnerDto getDataByMNum(String mem_num);
 }

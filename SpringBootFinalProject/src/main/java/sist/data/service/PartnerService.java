@@ -96,6 +96,12 @@ public class PartnerService implements PartnerServiceInter {
 		return mapperInter.getExp(mem_num);
 	}
 
+	@Override
+	public PartnerDto getDataByMNum(String mem_num) {
+		// TODO Auto-generated method stub
+		return mapperInter.getDataByMNum(mem_num);
+	}
+
 	
 
 	
