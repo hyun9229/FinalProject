@@ -37,4 +37,7 @@
   <update id="updatePetsitterStatus" parameterType="String">
     update member set status=2 where mem_num=#{mem_num}
   </update>
+  <select id="getStatus" resultType="int" parameterType="String">
+    select status from member where mem_num=#{mem_num}
+  </select>
 </mapper>

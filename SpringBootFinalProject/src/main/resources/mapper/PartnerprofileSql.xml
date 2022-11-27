@@ -12,8 +12,8 @@
       
     <insert id="insertPartnerProf" parameterType="partnerprofile">
     
-      insert into partnerprofile (partnerprof_subject,partnerprof_star,partnerprof_price)
-      values(#{partnerprof_subject},#{partnerprof_star},#{partnerprof_price})
+      insert into partnerprofile (partner_num,partner_name,partner_gender,partner_date,partner_time,partner_exp,partnerprof_subject,partnerprof_star,partnerprof_price)
+      values(#{partner_num},#{partner_name},#{partner_gender},#{partner_date},#{partner_time},#{partner_exp},#{partnerprof_subject},#{partnerprof_star},#{partnerprof_price})
 
     </insert>
 

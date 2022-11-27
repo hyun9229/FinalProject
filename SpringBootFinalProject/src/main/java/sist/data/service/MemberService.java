@@ -91,6 +91,12 @@ public class MemberService implements MemberServiceInter {
 		mapperInter.updatePetsitterStatus(mem_num);
 	}
 
+	@Override
+	public int getStatus(String mem_num) {
+		// TODO Auto-generated method stub
+		return mapperInter.getStatus(mem_num);
+	}
+
 	
 
 }

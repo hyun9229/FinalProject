@@ -33,4 +33,6 @@ public interface MemberMapperInter {
 	public void updateTrainerStatus(String mem_num);
 	//펫시터로 status update(status=2)
 	public void updatePetsitterStatus(String mem_num);
+	//mem_num에 따른 status값 반환
+	public int getStatus(String mem_num);
 }

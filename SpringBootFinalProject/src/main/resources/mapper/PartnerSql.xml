@@ -59,4 +59,9 @@
     select partner_exp from partner where mem_num=#{mem_num}  
   </select>
   
+  <!-- getDataByMNum -->
+  <select id="getDataByMNum" resultType="partner" parameterType="String">
+    select * from partner where mem_num=#{mem_num}
+  </select>
+  
 </mapper>
