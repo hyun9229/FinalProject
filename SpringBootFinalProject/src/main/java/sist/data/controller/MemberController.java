@@ -133,7 +133,7 @@ public class MemberController {
 		
 		//관리자일 경우 로그인 후 main에 파트너 지원리스트 뜨도록
 		List<TrainerDto> tlist=tservice.TrainerList();
-		List<PartnerDto> plist=pservice.PartnerList();
+		List<PartnerDto> plist=pservice.PartnerMuList();
 		
 		model.addAttribute("tlist", tlist);
 		model.addAttribute("plist", plist);
