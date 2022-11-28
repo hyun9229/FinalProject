@@ -57,6 +57,7 @@ public class LoginController {
 			session.setAttribute("loginok", "yes");
 			session.setAttribute("saveok", cbsave);
 			session.setAttribute("loginname", dto.getMem_name());
+			session.setAttribute("status", dto.getStatus());
 						
 		    return "redirect:main";
 			
