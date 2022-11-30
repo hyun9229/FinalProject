@@ -12,6 +12,7 @@ public class TrainerDto {
 	private String mem_num;
 	private String trainer_name;
 	private String trainer_gender;
+	private String trainer_email;
 	private String trainer_birth;
 	private String trainer_phone;
 	private String trainer_addr;

@@ -45,10 +45,6 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdown01">
                             <li><a class="dropdown-item" href="${root }/petsitter">펫시터 서비스</a></li>
                             <li><div class="dropdown-divider"></div></li>
-                            <li><a class="dropdown-item" href="${root }/petsitter/housesitting">방문 돌봄</a></li>
-                            <li><div class="dropdown-divider"></div></li>
-                            <li><a class="dropdown-item" href="${root }/petsitter/dogwalking">방문 산책</a></li>
-                            <li><div class="dropdown-divider"></div></li>
                             <li><a class="dropdown-item" href="${root }/partnerprofile/partnerlist">펫시터 프로필</a></li>
                         </ul>
                     </li>
@@ -64,6 +60,10 @@
                     
                     <li class="nav-item">
                         <a class="nav-link" href="${root }/trainer/qna">훈련사 Q&A</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="${root }/beauty">미용샵</a>
                     </li>
                     
                     <li class="nav-item dropdown">
@@ -85,7 +85,7 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-solid-sm" href="#contact">문의하기</a>
+                    <a class="btn-solid-sm" href="../chatbot">챗봇 문의</a>
                 </span>
                 
             </div> <!-- end of navbar-collapse -->

@@ -5,5 +5,5 @@ import sist.data.dto.AnimalDto;
 public interface AnimalServiceInter {
 
 	public void insertAnimal(AnimalDto dto);
-	public int getSearchByNum(String mem_num);
+	public AnimalDto getDataByMemNum(String mem_num);
 }

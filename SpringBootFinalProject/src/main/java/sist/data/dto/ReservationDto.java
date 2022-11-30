@@ -14,8 +14,6 @@ public class ReservationDto {
 	public String partnerprof_num;
 	public String ani_num;
 	public String res_visit;
-	public String res_animal;
-	public String res_match;
 	public String res_norm_date;
 	public String res_rout_date;
 	public String res_rout_start;
