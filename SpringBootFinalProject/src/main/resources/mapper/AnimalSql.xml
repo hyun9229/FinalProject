@@ -4,7 +4,7 @@
   <insert id="insertAnimal" parameterType="animal">
     insert into animal(mem_num,ani_photo,ani_name,ani_gender,ani_type) values(#{mem_num},#{ani_photo},#{ani_name},#{ani_gender},#{ani_type})
   </insert>
-  <select id="getSearchByNum" resultType="int" parameterType="String">
-    select count(*) from animal where mem_num=#{mem_num}
+  <select id="getDataByMemNum" resultType="animal" parameterType="String">
+    select * from animal where mem_num=#{mem_num}
   </select>
 </mapper>

@@ -9,5 +9,5 @@ public interface AnimalMapperInter {
 
 	public void insertAnimal(AnimalDto dto);
 	//mem_num에 따른 getData
-	public int getSearchByNum(String mem_num);
+	public AnimalDto getDataByMemNum(String mem_num);
 }

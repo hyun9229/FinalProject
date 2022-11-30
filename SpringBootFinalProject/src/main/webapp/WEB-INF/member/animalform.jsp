@@ -70,17 +70,6 @@ input[type=submit]:hover {
         background-color: #007bff;
         color: #ffffff;
     }
-    
-    
-div.box{
-
-margin: 10px 400px;
-margin-bottom:10px;
-padding: 50px;
-border-radius: 20px;
-background-color: white;
-
-}
 
 div.box1{
 
@@ -158,8 +147,6 @@ function readURL(input) {
 		  <input type="file" name="upload" class="form-control" style="width: 300px;"
 			 id="upload" onchange="readURL(this);"><br>
 		  </label>
-	
-		 
 		
 		<label for="name"><b style="font-size: 20px;">이름</b> &nbsp;<span style="color: red; font-size: 25px;">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			 &emsp;&emsp;&emsp;&emsp;&emsp;

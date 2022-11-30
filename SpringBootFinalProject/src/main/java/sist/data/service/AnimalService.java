@@ -19,9 +19,10 @@ public class AnimalService implements AnimalServiceInter {
 	}
 
 	@Override
-	public int getSearchByNum(String mem_num) {
+	public AnimalDto getDataByMemNum(String mem_num) {
 		// TODO Auto-generated method stub
-		return mapperInter.getSearchByNum(mem_num);
+		return mapperInter.getDataByMemNum(mem_num);
 	}
+
 
 }

@@ -77,7 +77,6 @@ img{
         <img src="images/up-arrow.png" alt="alternative">
     </button>
     <!-- end of back to top button -->
-    
-    	
+     	
 </body>
 </html>

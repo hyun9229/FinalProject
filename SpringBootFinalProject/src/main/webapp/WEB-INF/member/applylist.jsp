@@ -16,9 +16,6 @@
 <script type="text/javascript">
 $(function(){
 	
-	//시작하자마자 함수호출
-	/* status(); */
-	
 	//훈련사 승인
 	$(".confirmTrainer").click(function(){
 		
@@ -30,7 +27,7 @@ $(function(){
 			success:function(){
 				
 				alert("승인했습니다.");
-				
+				emailSend();
 			}
 		}); 
 	});
@@ -46,11 +43,25 @@ $(function(){
 			success:function(){
 				
 				alert("승인했습니다.");
-				
+				emailSend();
 			}
 		}); 
 	});
 });
+
+//이메일 발송
+function emailSend(){
+        
+        $.ajax({
+            url: "../mail"
+            ,type: "post"
+            ,success: function(data) {
+
+            },error: function(jqXHR,textStatus,errorThrown) {
+                alert("이메일 전송에 실패하였습니다.");
+            }
+        });
+    }
 
 //각 status가 0이면 '승인 대기중',1이면 '승인' 되도록
 /* function status(){
@@ -96,7 +107,7 @@ $(function(){
         </td>
         <td>${tdto.trainer_name }</td>
         <td>${tdto.trainer_gender }</td>
-        <td>${tdto.trainer_phone }</td>
+        <td>${tdto.trainer_email }</td>
         <td><input type="button" class="confirmTrainer btn btn-warning" mem_num="${tdto.mem_num }" value="승인"></td>
       </tr>
     </c:forEach>
@@ -112,8 +123,8 @@ $(function(){
         <td>${i.count }</td>
         <td>${pdto.partner_name }</td>
         <td>${pdto.partner_gender }</td>
-        <td>${pdto.partner_phone }</td>
-        <td><input type="button" class="confirmPetsitter btn btn-warning" mem_num="${pdto.mem_num }" value="승인"></button></td>
+        <td>${pdto.partner_email }</td>
+        <td><input type="button" class="confirmPetsitter btn btn-warning" mem_num="${pdto.mem_num }" email="${pdto.partner_email }" value="승인"></button></td>
       </tr>
     </c:forEach>
   </table>
