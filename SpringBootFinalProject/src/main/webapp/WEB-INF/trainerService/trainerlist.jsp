@@ -116,5 +116,3 @@ A. 반려동물의 행동학적 전문 지식과 카밍 시그널을 통하여 <
 </div>
 <img alt="" src="${root }/image/t1.png" width="700px;" height="300px;" id="img2">
 </html>
-
-

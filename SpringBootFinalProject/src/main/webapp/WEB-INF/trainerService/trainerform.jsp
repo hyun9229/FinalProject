@@ -133,12 +133,12 @@ div.jiwon{
 	<input type="hidden" name="mem_id" value="${sessionScope.myid }">
 		
 		<label for="name"><b style="font-size: 20px;">이름</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			 &emsp;&emsp;&emsp;&emsp;&emsp;
-			 <input type="text" name="trainer_name" value="${trainer_name }" class="form-control" required="required"><br>
+			 &emsp;&emsp;&emsp;&emsp;
+			 <input type="text"  name="trainer_name" placeholder="이름" class="form-control" required="required"><br>
 				
 		<label for="mail"><b style="font-size: 20px;">생년월일</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;
 			 &emsp;&emsp;&emsp;&nbsp;
-			 <input type="text" name="trainer_birth" value="${trainer_birth }" class="form-control" required="required"><br><span style="color: gray; font-size: 13px; font-style: italic; margin-left: 170px;">03년생부터(만 18세이상) 지원이 가능합니다.</span><br><br>
+			 <input type="text" name="trainer_birth" placeholder="예)1994-01-01" class="form-control" required="required">&emsp;<span style="color: gray; font-size: 13px; font-style: italic;">03년생부터(만 18세이상) 지원이 가능합니다.</span><br><br>
 					
 					
         <label class="test_obj"><b style="font-size: 20px;">성별</b> &nbsp;<span style="color: red; font-size: 25px;">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -153,20 +153,20 @@ div.jiwon{
               <span>여성</span> 
 	    </label> <br><br>
 	    
-	    <label for="name"><b style="font-size: 20px;">이메일</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;
-			&emsp;&emsp;&emsp;&emsp; 
-			<input type="text" name="trainer_email" value="${trainer_email }" class="form-control" required="required"><br>
-			<span style="color: gray; font-size: 13px; font-style: italic; margin-left: 170px;">입력한 이메일로 합격 여부를 알려드립니다.</span><br>
+	    <label for="name"><b style="font-size: 20px;">이메일</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 &emsp;&emsp;&emsp;
+			 <input type="text"  name="trainer_email" placeholder="이메일" class="form-control" required="required"><br>
+			 
 	    
 	    <label for="name"><b style="font-size: 20px;">연락처</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;
 			&emsp;&emsp;&emsp;&emsp; 
-			<input type="text" name="trainer_phone" value="${trainer_phone }" class="form-control" required="required"><br>
-			<span style="color: gray; font-size: 13px; font-style: italic; margin-left: 170px;">입력한 번호로 합격 문자를 보내드립니다.</span><br>
+			<input type="text" name="trainer_phone" placeholder="연락처" class="form-control" required="required">&nbsp;
+			<span style="color: gray; font-size: 13px; font-style: italic;">&emsp;입력한 번호로 합격 문자를 보내드립니다.</span><br>
 			 
 		<label for="name"><b style="font-size: 20px;">주소</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; 
-			 <input type="text" name="trainer_addr" value="${trainer_addr }" class="form-control" required="required"><br>
-			 <span style="color: gray; font-size: 13px; font-style: italic; margin-left: 170px;">시/군/구까지 입력해주세요.</span><br><br>
+			 <input type="text" name="trainer_addr" placeholder="예)서울시 강남구 논현동" class="form-control" required="required">&emsp;
+			 <span style="color: gray; font-size: 13px; font-style: italic;">시/군/구까지 입력해주세요.</span><br><br>
 	    		
 	    <label class="test_obj"><b style="font-size: 20px;">흡연여부</b> &nbsp;<span style="color: red; font-size: 25px;">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              &emsp;&emsp; <input type="radio" name="trainer_smoking" value="흡연" class="form-control" required="required">
@@ -176,12 +176,10 @@ div.jiwon{
 	    <label class="test_obj">
              &emsp; <input type="radio" name="trainer_smoking" value="비흡연" required="required">
               <span>비흡연</span> 
-	    </label>
-	    <br><span style="color: gray; font-size: 13px; font-style: italic; margin-left: 170px; margin-top: 20px;">직업 특성상 흡연을 하시는 경우, 파트너 활동이 어려울 수 있습니다.</span>
-	    <br><br>		
+	    </label> <br><br><br>		
 	    		
 	    <label for="name"><b style="font-size: 20px;">사진</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&emsp;&emsp;&emsp;&emsp; <input type="file" name="upload" required="required"><br>
+			&emsp;&emsp;&emsp;&emsp; <input type="file" name="upload" ><br>
 		</fieldset>		
 
  </div>   
@@ -212,7 +210,7 @@ div.jiwon{
 			 <input type="checkbox" name="trainer_loc"  value="경기 지역">&emsp;경기 지역&emsp;
 			 <input type="checkbox" name="trainer_loc" value="인천 지역">&emsp;인천 지역&emsp;
 			 <input type="checkbox" name="trainer_loc" value="수도권외 지역" >&emsp;수도권외 지역<br><br>
-			 <textarea style="width: 500px;" placeholder="이곳에 직접 입력해주세요" name="trainer_loc"></textarea>
+			 <textarea style="width: 700px;" placeholder="이곳에 직접 입력해주세요" name="trainer_loc" class="form-control"></textarea>
 	    		
 		</fieldset>		
 
@@ -240,13 +238,13 @@ div.jiwon{
 		<label for="name"><b style="font-size: 20px;">경력 사항</b> &nbsp;<span style="color: red; font-size: 25px;">*</span> </label><br><br>
 		<span style="color: gray; font-size: 15px;">회사명/근무 기간/하신 업무 (작성해주신 경력에 대해서는 추후 사실 여부를 확인할 수 있습니다)</span><br><br>
 			
-			 <textarea style="width: 500px; height: 100px;" placeholder="이곳에 직접 입력해주세요" name="trainer_career" class="form-control" required="required"></textarea><br>
+			 <textarea style="width: 700px; height: 100px;" placeholder="이곳에 직접 입력해주세요" name="trainer_career" class="form-control" required="required"></textarea><br>
 	    		
 	    <br>		
 	    <label for="name"><b style="font-size: 20px;">지원 동기</b> &nbsp;<span style="color: red; font-size: 25px;">*</span> </label><br><br>
 		
 			
-			 <textarea style="width: 500px; height:200px;" placeholder="이곳에 직접 입력해주세요" name="trainer_content" class="form-control" required="required"></textarea>
+			 <textarea style="width: 700px; height:200px;" placeholder="이곳에 직접 입력해주세요" name="trainer_content" class="form-control" required="required"></textarea>
 	    		
 		</fieldset>		
 		
@@ -254,9 +252,11 @@ div.jiwon{
 	
  </div>     
 
-<button type="submit" class="btn btn-primary" style="margin-left: 570px; width: 300px; height: 80px; font-size: 25px;">지원서 제출</button>
        
 </div> 
+
+<button type="submit" class="btn btn-primary" style="margin-left: 700px; width: 300px; height: 80px; font-size: 25px;"
+onclick="btn()">지원서 제출</button>
 
 </form>
 
@@ -265,7 +265,7 @@ div.jiwon{
 <br>
 <script type="text/javascript">
 
-function clickEvent(){
+function btn(){
 	alert('신청이 완료되었습니다');
 }
 </script>

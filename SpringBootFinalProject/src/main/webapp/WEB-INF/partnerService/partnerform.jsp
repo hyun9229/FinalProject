@@ -7,7 +7,8 @@
 <head>
 <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
 <title>Insert title here</title>
 <style type="text/css">
@@ -47,6 +48,8 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #45a049;
 }
+
+
 
  .test_obj input[type="radio"] {
         display: none;
@@ -107,7 +110,12 @@ div.jiwon{
 }
 
 </style>
-
+ <script>
+function btn(){
+	alert("신청이 완료되었습니다");
+	
+}
+</script>
 </head>
 <body>
 <form action="insert" method="post" enctype="multipart/form-data">
@@ -126,39 +134,38 @@ div.jiwon{
 		
 		<label for="name"><b style="font-size: 20px;">이름</b> &nbsp;<span style="color: red; font-size: 25px;">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			 &emsp;&emsp;&emsp;&emsp;&emsp;
-			 <input type="text"  name="partner_name" value="${partner_name }" class="form-control" required="required"></label><br>
+			 <input type="text"  name="partner_name" placeholder="이름" class="form-control" required="required"></label><br>
 				
 		<label for="mail"><b style="font-size: 20px;">생년월일</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;
 			 &emsp;&emsp;&emsp;&emsp;
-			 <input type="text" name="partner_birth" value="${partner_birth }" class="form-control" required="required"><br><span style="color: gray; font-size: 13px; font-style: italic; margin-left: 170px;">03년생부터(만 18세이상) 지원이 가능합니다.</span><br><br>
+			 <input type="text" name="partner_birth" placeholder="예)1994-01-01" class="form-control" required="required">&emsp;<span style="color: gray; font-size: 13px; font-style: italic;">03년생부터(만 18세이상) 지원이 가능합니다.</span><br><br>
 					
 					
         <label class="test_obj"><b style="font-size: 20px;">성별</b> &nbsp;<span style="color: red; font-size: 25px;">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              &emsp;&emsp;&emsp;&emsp;&emsp; 
              <input type="radio" name="partner_gender" value="남성" placeholder="성별" required/>
               <span>남성</span> 
-	    </label>	
-	    
+	    </label>
+	     
 	    <label class="test_obj">
              &emsp; 
              <input type="radio" name="partner_gender" value="여성" placeholder="성별" required/>
               <span>여성</span> 
 	    </label> <br><br>
 	    
-	    <label for="name"><b style="font-size: 20px;">이메일</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;
-			&emsp;&emsp;&emsp;&emsp; 
-			<input type="text" name="partner_email" value="${partner_email }" class="form-control" required="required"><br>
-			<span style="color: gray; font-size: 13px; font-style: italic; margin-left: 170px;">입력한 이메일로 합격 여부를 알려드립니다.</span><br>
+	     <label for="name"><b style="font-size: 20px;">이메일</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			 &emsp;&emsp;&emsp;
+			 <input type="text"  name="partner_email" placeholder="이메일" class="form-control" required="required"><br>
 	    
 	    <label for="name"><b style="font-size: 20px;">연락처</b>&nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;
 			&emsp;&emsp;&emsp;&emsp; 
-			<input type="text" name="partner_phone" value="${partner_phone }" class="form-control" required="required"><br>
-			<span style="color: gray; font-size: 13px; font-style: italic; margin-left: 170px;">입력한 번호로 합격 문자를 보내드립니다.</span><br>
+			<input type="text" name="partner_phone" placeholder="연락처" class="form-control" required="required">&emsp;
+			<span style="color: gray; font-size: 13px; font-style: italic;">입력한 번호로 합격 문자를 보내드립니다.</span><br>
 			 
 		<label for="name"><b style="font-size: 20px;">주소</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; 
-			<input type="text" name="partner_addr" value="${partner_addr }" class="form-control" required="required"><br>
-			<span style="color: gray; font-size: 13px; font-style: italic; margin-left: 170px;">시/군/구까지 입력해주세요.</span><br><br><br>
+			<input type="text" name="partner_addr" placeholder="예)서울시 강남구 논현동" class="form-control" required="required">&emsp;
+			<span style="color: gray; font-size: 13px; font-style: italic;">시/군/구까지 입력해주세요.</span><br><br><br>
 	    		
 	   
 	    <label class="test_obj"><b style="font-size: 20px;">흡연여부</b> &nbsp;<span style="color: red; font-size: 25px;">*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -171,9 +178,9 @@ div.jiwon{
              &emsp; 
              <input type="radio" name="partner_smoking" value="비흡연" required/>
               <span>비흡연</span> 
-	    </label>
-	    <br><span style="color: gray; font-size: 13px; font-style: italic; margin-left: 170px; margin-top: 20px;">직업 특성상 흡연을 하시는 경우, 파트너 활동이 어려울 수 있습니다.</span>
-	    <br><br>
+              <span style="color: gray; font-size: 13px; font-style: italic;">&emsp;직업 특성상 흡연을 하시는 경우, 파트너 활동이 어려울 수 있습니다.</span>
+	    </label> <br><br><br>
+	    
 	     
 	    <label for="name"><b style="font-size: 20px;">직업</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label><br><br>
 	    <input type="radio" name="partner_job"   value="주부" required/>&emsp;주부&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -201,15 +208,15 @@ div.jiwon{
 	    <input type="radio" name="partner_date"  value="평균 20일 이상 가능합니다." required/>&emsp;평균 20일 이상 가능합니다.<br><br>
 	    <input type="radio" name="partner_date"  value="평균 20일 이하 가능합니다." required/>&emsp;평균 20일 이하 가능합니다.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;
-	      <input type="radio" name="partner_date"  value="주말만 가능합니다." required/>&emsp;주말만 가능합니다.<br>
-	      <span style="color: gray; font-size: 13px; font-style: italic; margin-left: 300px;">(파트너로 활동이 어려울 수 있습니다).</span><br><br><br>
+	      <input type="radio" name="partner_date"  value="주말만 가능합니다." required/>&emsp;주말만 가능합니다.&emsp;
+	      <span style="color: gray; font-size: 13px; font-style: italic;">(파트너로 활동이 어려울 수 있습니다).</span><br><br><br>
 	
 	   <label for="name"><b style="font-size: 20px;">활동 가능한 시간대</b> &nbsp;<span style="color: red; font-size: 25px;">*</span>
 	    <span style="color: gray; font-size: 13px; font-style: italic;">(중복선택 가능)</span></label><br><br>
-			 <input type="checkbox" name="partner_time"  value="오전 타임(오전 8:00 ~ 오후 12:00)" >&emsp;오전 타임(오전 8:00 ~ 오후 12:00)<br><br>
-			 <input type="checkbox" name="partner_time"  value="오후 타임(오후 12:00 ~ 오후 6:00)" >&emsp;오후 타임(오후 12:00 ~ 오후 6:00)<br><br>
-			 <input type="checkbox" name="partner_time"  value="저녁 타임(오후 06:00 ~ 오후 10:00)" >&emsp;저녁 타임(오후 06:00 ~ 오후 10:00)<br><br>
-			 <input type="checkbox" name="partner_time"  value="모두 가능합니다.">&emsp;모두 가능합니다.<br>
+			 <input type="checkbox" name="partner_time"  value="모두 가능합니다.">&emsp;모두 가능합니다.&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
+			 <input type="checkbox" name="partner_time"  value="오전 타임(오전 8:00 ~ 오후 12:00)" >&emsp;오전 타임(오전 8:00 ~ 오후 12:00)&nbsp;&nbsp;<br><br>
+			 <input type="checkbox" name="partner_time"  value="오후 타임(오후 12:00 ~ 오후 6:00)" >&emsp;오후 타임(오후 12:00 ~ 오후 6:00)&emsp;&emsp;&emsp;
+			 <input type="checkbox" name="partner_time"  value="저녁 타임(오후 06:00 ~ 오후 10:00)" >&emsp;저녁 타임(오후 06:00 ~ 오후 10:00)
 		</fieldset>		
 
  </div>
@@ -247,23 +254,26 @@ div.jiwon{
 	    
 	     
 	    <label for="name"><b style="font-size: 20px;">펫시터 활동 경력</b> &nbsp;<span style="color: red; font-size: 25px;">*</span></label><br><br>
-	    <input type="radio" name=partner_exp   value="과거에 활동했지만, 현재는 활동하지 않음" >&emsp;과거에 활동했지만, 현재는 활동하지 않음.<br><br>
+	    <input type="radio" name=partner_exp   value="과거에 활동했지만, 현재는 활동하지 않음" >&emsp;과거에 활동했지만, 현재는 활동하지 않음.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    &nbsp;&nbsp;&nbsp;
 	    <input type="radio" name="partner_exp"  value="현재도 활동하고 있음" >&emsp;현재도 활동하고 있음&emsp;&emsp;<br><br>
-	    <input type="radio" name="partner_exp"  value="타인의 강아지/고양이를 돌봐준 적이 있음" >&emsp;타인의 강아지/고양이를 돌봐준 적이 있음<br><br>
-	    <input type="radio" name="partner_exp"  value="펫시터로 활동을 해본 적이 없음" >&emsp;펫시터로 활동을 해본 적이 없음&emsp;&emsp;
+	    <input type="radio" name="partner_exp"  value="타인의 강아지/고양이를 돌봐준 적이 있음" >&emsp;타인의 강아지/고양이를 돌봐준 적이 있음&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	      <input type="radio" name="partner_exp"  value="펫시터로 활동을 해본 적이 없음" >&emsp;펫시터로 활동을 해본 적이 없음&emsp;&emsp;
 	
 		</fieldset>		
 
  </div>
  
- <button type="submit"  class="btn btn-primary" style="margin-left: 570px; width: 300px; height: 80px; font-size: 25px;">지원서 제출</button>
+ 
  
  </div>
+ <button type="submit"  class="btn btn-primary" style="margin-left: 700px; width: 300px; height: 80px; font-size: 25px;"
+ onclick="btn()">지원서 제출</button>
  </form>
- <script>
-function submit(){
+<script type="text/javascript">
+
+function btn(){
 	alert('신청이 완료되었습니다');
-	
 }
 </script>
 </body>

@@ -19,48 +19,12 @@ public class PartnerprofileService implements PartnerprofileServiceInter {
 
 
 
-	@Override
-	public List<PartnerprofileDto> partnerProList(String partnerprof_num) {
-		// TODO Auto-generated method stub
-		return mapperInter.partnerProList(partnerprof_num);
-	}
-
-
-
-
-	@Override
-	public void getProNum(String partner_num) {
-		// TODO Auto-generated method stub
-		mapperInter.getProNum(partner_num);
-	}
-
-
-
 
 	@Override
 	public PartnerprofileDto getData(String partnerprof_num) {
 		// TODO Auto-generated method stub
 		return mapperInter.getData(partnerprof_num);
 	}
-
-
-
-
-	@Override
-	public int getMaxNum() {
-		// TODO Auto-generated method stub
-		return mapperInter.getMaxNum();
-	}
-
-
-
-
-	@Override
-	public String getNum(String partner_num) {
-		// TODO Auto-generated method stub
-		return mapperInter.getNum(partner_num);
-	}
-
 
 
 
@@ -72,11 +36,18 @@ public class PartnerprofileService implements PartnerprofileServiceInter {
 
 
 
-
 	@Override
 	public List<PartnerprofileDto> getAllList() {
 		// TODO Auto-generated method stub
 		return mapperInter.getAllList();
+	}
+
+
+
+	@Override
+	public List<PartnerprofileDto> getSList(String partnerprof_num) {
+		// TODO Auto-generated method stub
+		return mapperInter.getSList(partnerprof_num);
 	}
 
 

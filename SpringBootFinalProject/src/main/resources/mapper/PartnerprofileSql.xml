@@ -2,14 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="sist.data.mapper.PartnerprofileMapperInter">
 
-  <select id="partnerProList" resultType="partnerprofile" parameterType="String">
-        
-         select * from partnerprofile 
-         where partnerprof_num=#{String partnerprof_num} order by partner_num asc
-      </select>
-      
-   
-      
     <insert id="insertPartnerProf" parameterType="partnerprofile">
     
       insert into partnerprofile (partner_num,partner_name,partner_gender,partner_date,partner_time,partner_exp,partnerprof_subject,partnerprof_star,partnerprof_price)
@@ -17,28 +9,19 @@
 
     </insert>
 
-
-      <select id="getProNum" parameterType="String">
-         select partner_num from partner where partner_num;
-      
-      </select>
-
   
    <select id="getData" parameterType="String" resultType="partnerprofile">
            select * from partnerprofile where partnerprof_num=#{partnerprof_num}
       </select>
 
-      <select id="getNum" resultType="String" parameterType="String">
-    select partner_num from partner where partner_num=#{partner_num}
-  </select>
-  
-      
-         <select id="getMaxNum" resultType="int">
-           select ifnull(max(partnerprof_num),0) from partnerprofile
-      </select>
 
-<select id="getAllList">
-select * from partnerprofile where partner_num=#{partner_num}
+<select id="getAllList" resultType="partnerprofile">
+select * from partnerprofile 
+
+</select>
+
+<select id="getSList" resultType="partnerprofile" parameterType="String">
+select * from partnerprofile where partnerprof_num=#{partnerprof_num}
 
 </select>
 </mapper> 

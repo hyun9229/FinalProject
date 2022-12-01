@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import sist.data.dto.MemberDto;
 import sist.data.dto.PartnerDto;
 import sist.data.service.MemberService;
 import sist.data.service.PartnerService;
@@ -25,7 +24,7 @@ public class PartnerServiceController {
 	MemberService mservice;
 	
 	@GetMapping("/partnerService/form2")
-	public String pform2(HttpSession session,Model model)
+	public String pform2(HttpSession session)
 	{
 		//로그인 상태인지 아닌지 체크
 		String loginok=(String)session.getAttribute("loginok");
@@ -33,16 +32,7 @@ public class PartnerServiceController {
 		if(loginok==null)
 			return "redirect:../login/main";
 		else {
-			//로그인한 id통해 이름,생년월일,이메일,연락처,주소 가져오기
-			String myid=(String)session.getAttribute("myid");
-			MemberDto mdto=mservice.getDataById(myid);
-			
-			model.addAttribute("partner_name", mdto.getMem_name());
-			model.addAttribute("partner_birth", mdto.getMem_birth());
-			model.addAttribute("partner_email", mdto.getMem_email());
-			model.addAttribute("partner_phone", mdto.getMem_phone());
-			model.addAttribute("partner_addr", mdto.getMem_addr());
-			
+		
 			return "/partnerService/partnerform";
 		}
 		

@@ -18,20 +18,10 @@
      select * from partner
    </select>
    
-    <select id="PartneruuList" resultType="partner" parameterType="String">
-     select * from partner where partner_num=#{partner_num}
-   </select>
-   
       <select id="getData" parameterType="String" resultType="partner">
            select * from partner where partner_num=#{partner_num}
       </select>
-        <select id="getNum" resultType="String" parameterType="String">
-    select partner_num from partner where partner_num=#{partner_num}
-  </select>
-  
-      <select id="getMaxNum" resultType="int">
-           select ifnull(max(partner_num),0) from partner
-      </select>
+
   
   <!--파트너 memnum  -->
   <select id="getMNum" resultType="String" parameterType="String">
