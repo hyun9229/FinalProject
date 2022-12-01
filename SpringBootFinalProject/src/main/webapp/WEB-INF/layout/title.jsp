@@ -54,7 +54,7 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdown01">
                             <li><a class="dropdown-item" href="${root }/trainer">훈련 서비스</a></li>
                             <li><div class="dropdown-divider"></div></li>
-                            <li><a class="dropdown-item" href="${root }/trainer/profile">훈련사 프로필</a></li>
+                           <li><a class="dropdown-item" href="${root }/trainerprofile/trainerlist">훈련사 프로필</a></li>
                         </ul>
                     </li>
                     

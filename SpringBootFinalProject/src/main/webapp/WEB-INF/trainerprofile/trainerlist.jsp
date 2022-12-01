@@ -6,12 +6,11 @@
 <html>
 <head>
 <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
-
+    <script src="https://kit.fontawesome.com/4f8084f592.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
 <style type="text/css">
 
@@ -32,7 +31,7 @@ margin: -200px;
 
 height: 500px;
 width: 500px;
-margin-left: 360px;
+margin-left: 300px;
 
 
 }
@@ -68,57 +67,57 @@ margin-left: 1450px;
 
 }
 
+
 body * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
 </style>
-
 </head>
-<c:set var="root" value="<%=request.getContextPath() %>"/>
 <body>
 <div style="width: 100%; height: 300px; border: none; margin-bottom: 200px;">
 <div class="answer2" style="border: none;"><br><br>
 
-<b>펫시터를 소개합니다!</b>
+<b>훈련사를 소개합니다!</b>
 
 </div>
 
 
 <div class="a" style="border: none;">
 <span style="color: gray;">
-까다로운 펫시터 선발·관리 체계와 안전 시스템을 구축하였습니다.
+&emsp;&emsp;&emsp;나와 우리 반려견에게 꼭 맞는 훈련사를 찾아보세요!
 </span>
 </div>
-<button type="button" onclick="location.href='/partnerprofile/partnerform'" style="width: 200px; height: 50px;"
-   class="btn btn-primary btn1">펫시터 정보 등록</button>
-</div>
+<%--  <c:if test="${sessionScope.loginok!=null || sessionScope.myid=='admin' }">  --%> 
 
-<%--  <c:if test="${sessionScope.loginok!=null and sessionScope.myid=='admin' }">  
-   
+<button type="button" onclick="location.href='/trainerprofile/trainerform'" style="width: 200px; height: 50px;"
+   class="btn btn-primary btn1">훈련사 정보 등록</button>
   
-   
- </c:if>   --%>   
+<%--  </c:if>    --%>
  
-   
+   </div>
  <div class="all" style="border: none;"><br><br>
-  <c:forEach var="pdto" items="${plist }">      
+  <c:forEach var="tdto" items="${tlist }">      
 
 <div class="container mt-3">
 
-  <div class="card" style="width:600px; height:200px; border: 2px solid #dcdcdc; "><br>
+  <div class="card" style="width:750px; height:220px; border: 2px solid #dcdcdc;" >
        
      
-<!--         <img class="card-img-top" src="../image/12.png" class="rounded-circle" alt="Cinque Terre"> -->
+     <%--  <img class="card-img-top" src="../photo/${tdto.trainer_photo }" alt="Card image" style="width:200px;">  --%>
+
   
     <div class="card-body">
-      <h4 class="card-title">${pdto.partner_name}&nbsp;펫시터</h4>
-      <p class="card-text">${pdto.partner_gender } 
-      <span style="float: right;">
-    #${pdto.partner_exp }</span></p>
-<hr>
-${pdto.partnerprof_subject }
+
+      <h4 class="card-title">${tdto.trainer_name}&nbsp;훈련사</h4><br>
+         <span style="float: right;"><br>
+      <fmt:formatNumber value="${tdto.trainerprof_price }" type="currency"></fmt:formatNumber>  </span></p>
+      <p class="card-text" style="font-size: 20px;">${tdto.trainerprof_subject } <br>
+      <hr>
+      <p class="card-text">#${tdto.trainerprof_field } 
+   
+   
 
 
 <span style="float: right;">
-      <a href="partnerdetail?partnerprof_num=${pdto.partnerprof_num}" class="btn btn-primary">펫시터 프로필 보기</a>  
+      <a href="trainerdetail?trainerprof_num=${tdto.trainerprof_num}" class="btn btn-primary">훈련사 프로필 보기</a>  
               </span>      </div>
   </div>
 
@@ -132,4 +131,5 @@ ${pdto.partnerprof_subject }
  </div>
 
 </body>
+
 </html>

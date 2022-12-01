@@ -26,34 +26,11 @@ public class PartnerService implements PartnerServiceInter {
 		return mapperInter.PartnerList();
 	}
 
-	@Override
-	public List<PartnerDto> PartnerMuList() {
-		// TODO Auto-generated method stub
-		return mapperInter.PartnerMuList();
-	}
-
-	@Override
-	public List<PartnerDto> PartneruuList(String partner_num) {
-		// TODO Auto-generated method stub
-		return mapperInter.PartneruuList(partner_num);
-	}
 
 	@Override
 	public PartnerDto getData(String partner_num) {
 		// TODO Auto-generated method stub
 		return mapperInter.getData(partner_num);
-	}
-
-	@Override
-	public String getNum(String partner_name) {
-		// TODO Auto-generated method stub
-		return mapperInter.getNum(partner_name);
-	}
-
-	@Override
-	public int getMaxNum() {
-		// TODO Auto-generated method stub
-		return mapperInter.getMaxNum();
 	}
 
 
@@ -100,6 +77,12 @@ public class PartnerService implements PartnerServiceInter {
 	public PartnerDto getDataByMNum(String mem_num) {
 		// TODO Auto-generated method stub
 		return mapperInter.getDataByMNum(mem_num);
+	}
+
+	@Override
+	public List<PartnerDto> PartnerMuList() {
+		// TODO Auto-generated method stub
+		return mapperInter.PartnerMuList();
 	}
 
 	

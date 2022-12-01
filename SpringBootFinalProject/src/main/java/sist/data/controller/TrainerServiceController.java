@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import sist.data.dto.MemberDto;
 import sist.data.dto.TrainerDto;
 import sist.data.service.MemberService;
 import sist.data.service.TrainerService;
@@ -37,7 +35,7 @@ public class TrainerServiceController {
 	
 	//insert폼 뜨게
 	@GetMapping("/trainerService/trainerform")
-	public String tform(HttpSession session,Model model)
+	public String tform(HttpSession session)
 	{
 		//로그인 상태인지 아닌지 체크
 		String loginok=(String)session.getAttribute("loginok");
@@ -45,16 +43,6 @@ public class TrainerServiceController {
 		if(loginok==null)
 			return "redirect:../login/main";
 		else {
-			//로그인한 id통해 이름,생년월일,이메일,연락처,주소 가져오기
-			String myid=(String)session.getAttribute("myid");
-			MemberDto mdto=mservice.getDataById(myid);
-			
-			model.addAttribute("trainer_name", mdto.getMem_name());
-			model.addAttribute("trainer_birth", mdto.getMem_birth());
-			model.addAttribute("trainer_email", mdto.getMem_email());
-			model.addAttribute("trainer_phone", mdto.getMem_phone());
-			model.addAttribute("trainer_addr", mdto.getMem_addr());
-			
 			return "/trainerService/trainerform";
 		}
 		

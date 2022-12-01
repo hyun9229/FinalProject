@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import sist.data.dto.MemberDto;
 import sist.data.dto.PartnerDto;
 import sist.data.dto.PartnerprofileDto;
@@ -24,7 +25,6 @@ import sist.data.service.PartnerprofileService;
 
 @Controller
 public class PartnerprofileController {
-	
 	
 	
 	@Autowired
@@ -39,25 +39,18 @@ public class PartnerprofileController {
 
 	//리스트
 	@GetMapping("/partnerprofile/partnerlist")
-	public ModelAndView list(@RequestParam(defaultValue = "20") String partnerprof_num,String partner_num
-			 )
+	public ModelAndView list()
 	{
 		ModelAndView model=new ModelAndView();
-	 	
 		
-		PartnerDto dto=pservice.getData(partner_num);
-		model.addObject("dto", dto);
+		//List<PartnerDto> list=pservice.PartnerMuList();
+		//model.addObject("list", list);
 		
-		List<PartnerDto> list=pservice.PartnerMuList();
-		model.addObject("list", list);
+		List<PartnerprofileDto> plist=service.getAllList();
+		model.addObject("plist", plist);
 		
-		PartnerprofileDto adto=service.getData(partnerprof_num);
-		model.addObject("adto", adto);
 		
-		List<PartnerprofileDto> alist=service.partnerProList(partnerprof_num);
-		model.addObject("alist", alist);
-	
-		
+
 		model.setViewName("/partnerprofile/partnerlist");
 		
 		return model;
@@ -85,6 +78,8 @@ public class PartnerprofileController {
 		model.addAttribute("partner_time", partner_time);
 		model.addAttribute("partner_exp", partner_exp);
 		
+		
+		
 		return "/partnerprofile/partnerform";
 	}
 
@@ -102,29 +97,22 @@ public class PartnerprofileController {
 	
 	//클릭시 펫시터 소개
 	@GetMapping("/partnerprofile/partnerdetail")
-	public ModelAndView detailform(@RequestParam(defaultValue = "20") String partnerprof_num, String partner_num)
+	public ModelAndView detailform(String partnerprof_num)
 	{
 		ModelAndView model=new ModelAndView();
 		
 		
 		
 		//num에 해당하는 dto
-      
-       
-    	
-		PartnerDto dto=pservice.getData(partner_num);
-		model.addObject("dto", dto);
+	
+		 PartnerprofileDto pdto=service.getData(partnerprof_num);
+		 
+		  
+		 List<PartnerprofileDto> plist=service.getSList(partnerprof_num);
+		 model.addObject("plist", plist);
+		 
 		
-		List<PartnerDto> list=pservice.PartneruuList(partner_num);
-		model.addObject("list", list);
-		
-		PartnerprofileDto adto=service.getData(partnerprof_num);
-		model.addObject("adto", adto);
-		
-		List<PartnerprofileDto> alist=service.partnerProList(partnerprof_num);
-		model.addObject("alist", alist);
-		
-		
+		 model.addObject("pdto", pdto);
 		model.setViewName("/partnerprofile/partnerdetail");
 		
 		return model;
