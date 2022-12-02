@@ -15,22 +15,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<!-- 추후 nav로 꾸미기 -->
-<h2 class="alert alert-info" style="width: 600px;">나의 예약내역</h2>
-<table class="table table-bordered" style="width: 600px;">
-  <c:forEach var="dto" items="${list }" varStatus="i">
-    <tr>
-      <td>${dto.trainerprof_num }</td>
-      <td>${dto.partnerprof_num }</td>
-      <td>${dto.res_visit }</td>
-      <td><button type="button" class="btn btn-default" onclick="location.href='review'">리뷰쓰기</button></td>
-    </tr>
-  </c:forEach>
-</table>
-
-<h2 class="alert alert-info" style="width: 600px;">내 클래스의 예약내역</h2>
-
-
+<script type="text/javascript">
+  alert("리뷰 작성하셨습니다.");
+  location.replace("/");
+</script>
 </body>
 </html>
