@@ -35,5 +35,8 @@ public interface TrainerServiceMapperInter {
 	
 	//getDataByMem_num
 	public TrainerDto getDataByMNum(String mem_num);
+	
+	//getNumByTname
+	public String getNumByTname(String trainer_name);
 
 }
