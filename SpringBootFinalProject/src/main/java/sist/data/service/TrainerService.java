@@ -93,5 +93,11 @@ public class TrainerService implements TrainerServiceInter {
 		return mapperInter.getDataByMNum(mem_num);
 	}
 
+	@Override
+	public String getNumByTname(String trainer_name) {
+		// TODO Auto-generated method stub
+		return mapperInter.getNumByTname(trainer_name);
+	}
+
 }
 
