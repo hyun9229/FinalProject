@@ -150,6 +150,7 @@ $(function(){
 <input type="hidden" name="ani_num" value="${ani_num }">
 
 <!-- 추후 partner 프로필에서 '예약'누를것이므로 partnerprof_num도 hidden으로 넘기기 -->
+<input type="hidden" name="partnerprof_num" value="${partnerprof_num }">
 
   <div class="jiwon" style="border: none;">
   <b>방문돌봄 예약하기</b>
