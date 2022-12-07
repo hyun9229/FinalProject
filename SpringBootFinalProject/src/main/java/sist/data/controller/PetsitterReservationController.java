@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import sist.data.dto.AnimalDto;
 import sist.data.dto.ReservationDto;
@@ -34,7 +36,7 @@ public class PetsitterReservationController {
 	}
 	
 	@GetMapping("/petsitter/resform")
-	public String resform(Model model,HttpSession session) {
+	public String resform(Model model,HttpSession session,String partnerprof_num) {
 		
 		//로그인 상태인지 아닌지 체크
 		String loginok=(String)session.getAttribute("loginok");
@@ -56,6 +58,9 @@ public class PetsitterReservationController {
 			model.addAttribute("ani_type", dto.getAni_type());
 			model.addAttribute("mem_addr", mservice.getDataById(myid).getMem_addr());
 			
+			//partnerprof_num 넘기기
+			model.addAttribute("partnerprof_num", partnerprof_num);
+			
 			return "/reservation/preservationform";
 		}	
 	}
@@ -68,7 +73,7 @@ public class PetsitterReservationController {
 		//insert
 		service.insertReservation(dto);
 			
-		//목록으로 이동
-		return "redirect:/";
+		//mypage로 이동
+		return "redirect:../mypage";
 	}
 }

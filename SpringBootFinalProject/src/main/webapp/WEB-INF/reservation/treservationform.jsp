@@ -150,6 +150,10 @@ $(function(){
 <input type="hidden" name="ani_num" value="${ani_num }">
 
 <!-- 추후 trainer 프로필에서 '예약'누를것이므로 trainerprof_num도 hidden으로 넘기기 -->
+<input type="hidden" name="trainerprof_num" value="${trainerprof_num} ">
+
+<!-- payment는 기본값 0 -->
+<input type="hidden" name="payment" value="0">
 
   <div class="jiwon" style="border: none;">
   <b>방문교육 예약하기</b>
@@ -256,6 +260,8 @@ $(function(){
  </div>
    
    <button type="submit" class="btn btn-primary" style="margin-left: 570px; width: 300px; height: 80px; font-size: 25px;">예약하기</button>
+  
+
 </div> 
   
 </form>

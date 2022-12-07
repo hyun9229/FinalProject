@@ -74,6 +74,26 @@ vertical-align: bottom;
 
 
 body * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
+
+.resbtn{
+  display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    width: 190px;
+    height: 70px;
+    margin-top: 60px;
+    margin-left: 220px;
+    border-radius: 5px;
+    background: #6A92FE;
+}
+.restext{
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  font-size: 21px;
+  line-height: 48px;
+  color: white;
+}
 </style>
 </head>
 <body>
@@ -136,6 +156,10 @@ ${tdto.trainer_career }<br><br><br>
 <fmt:formatNumber value="${tdto.trainerprof_price }" type="currency"></fmt:formatNumber>
 </span>
 </p>
+
+<div class="resbtn">
+      <span class="restext" onclick="location.href='../trainer/resform?trainerprof_num=${trainerprof_num}'">예약하기</span>
+    </div>
       
    </div>
   </div>

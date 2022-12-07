@@ -22,4 +22,5 @@ public class ReservationDto {
 	public String res_priv_pass;
 	public String res_key_loc;
 	public String res_contact_method;
+	public int payment;
 }
