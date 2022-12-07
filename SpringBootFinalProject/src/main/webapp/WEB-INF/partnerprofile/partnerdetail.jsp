@@ -68,7 +68,7 @@ body * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
     width: 190px;
     height: 70px;
     margin-top: 60px;
-    margin-left: 220px;
+    margin-left: 40px;
     border-radius: 5px;
     background: #6A92FE;
 }
@@ -94,7 +94,8 @@ body * { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
 <b style="font-size: 30px;">${pdto.partnerprof_subject } </b><br><br>
  <span style="font-size: 22px;">
  ${pdto.partner_name }&nbsp;펫시터</span>&emsp;
- <i class="fa-solid fa-star" style="color: #6A92FE;"></i>
+<%--  <i class="fa-solid fa-star" style="color: #6A92FE;"></i>
+ ${pdto.partnerprof_star} --%>
  <br><br>
  <hr><br>
  
