@@ -187,26 +187,75 @@ function del(cart_num){
 </head>
 <body>
 
-<!-- 일반회원의 경우 나의 예약내역만 보이도록 -->
-<c:if test="${status==0 }">
-  
+
  <div class="container mt-3">
   <h2>MyPage</h2>
   <br>
   
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-bs-toggle="tab" href="#home">예약 내역</a>
+        <a class="nav-link active" data-bs-toggle="tab" href="#home">회원 정보</a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="tab" href="#menu1">예약 확정 클래스</a>
-      </li> -->
+      <c:if test="${mdto.status==0 }">
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#menu1">예약 내역</a>
+        </li>
+      </c:if>
+      <c:if test="${mdto.status==1 or mdto.status==2 }">
+        <li class="nav-item">
+          <a class="nav-link" data-bs-toggle="tab" href="#menu2">내 클래스의 예약내역</a>
+        </li>
+      </c:if>
     </ul>
  
-  <!-- Tab panes -->
+  <!-- 공통 기본정보 -->
   <div class="tab-content">
   
-    <div id="home" class="container tab-pane active"><br>
+  	<div id="home" class="container tab-pane active"><br>
+  	  <h2 class="alert alert-info" style="width: 600px;">회원 정보</h2>
+      <table class="table table-striped" style="width: 600px;">
+        <tr>
+          <td align="center">이름</td>
+          <td>${mdto.mem_name }</td>
+        </tr>
+        <tr>
+          <td align="center">아이디</td>
+          <td>${mdto.mem_id }</td>
+        </tr>
+        <tr>
+          <td align="center">핸드폰 번호</td>
+          <td>${mdto.mem_phone }</td>
+        </tr>
+        <tr>
+          <td align="center">이메일</td>
+          <td>${mdto.mem_email }</td>
+        </tr>
+        <tr>
+          <td align="center">주소</td>
+          <td>${mdto.mem_addr }</td>
+        </tr>
+        <tr>
+          <td align="center">포인트</td>
+          <td><fmt:formatNumber value="${mdto.mem_point }"/>&nbsp;점</td>
+        </tr>
+        <tr>
+          <td align="center">회원 형태</td>
+          <td>
+            <c:if test="${mdto.status==0 }">
+              일반 회원
+            </c:if>
+            <c:if test="${mdto.status==1 }">
+              훈련사
+            </c:if>
+            <c:if test="${mdto.status==2 }">
+              펫시터
+            </c:if>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <div id="menu1" class="container tab-pane"><br>
       <h2 class="alert alert-info" style="width: 600px;">나의 예약내역</h2>
         <table class="carttb table table-bordered" style="width: 600px;">
          <!-- <tr>
@@ -216,22 +265,30 @@ function del(cart_num){
              <button type="button" class="delbtn btn btn-light">선택삭제 <i class="fa fa-times" aria-hidden="true"></i></button> 
            </td>
          </tr> -->
-  
+  		  <tr align="center">
+  		  	<th>번호</th>
+  		  	<th>방문 형태</th>
+  		  	<th>방문 날짜</th>
+  		  	<th>방문 시간</th>
+  		  	<th>후기</th>
+  		  </tr>
           <c:forEach var="dto" items="${list }" varStatus="i">
-            <tr>
+            <tr align="center">
               <!-- <td>
                 <input type="checkbox" name="" res_num="" trainerprof_price="" class="cart_num form-check-input">
                 
               </td> -->
               <td>${i.count }</td>
               <td>${dto.res_visit }</td>
-              
-              <c:if test="${dto.res_norm_date!=null }">
-                <td>${dto.res_norm_date }</td>
+              <td>
+                <c:if test="${dto.res_norm_date!=null }">
+                ${dto.res_norm_date }
               </c:if>
               <c:if test="${dto.res_rout_date!=null }">
-                <td>${dto.res_rout_date }</td>
+                ${dto.res_rout_date }
               </c:if>
+              </td>
+              
               
               <td>${dto.res_time }</td>
               
@@ -241,98 +298,79 @@ function del(cart_num){
 	    <%=nf.format(class_price) %>
 	    </td> --%>
 	    
-              <td><button type="button" class="btn btn-default" onclick="location.href='review'">리뷰쓰기</button></td>
+              <td><button type="button" class="btn btn-light" onclick="location.href='review'">리뷰쓰기</button></td>
             </tr>
           </c:forEach>
        </table>
     </div>
     
-    <div id="menu1" class="container tab-pane fade"><br>
-      <h3>예약 확정 클래스</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
+    <!-- 훈련사 예약 -->
+    <c:if test="${mdto.status==1 }">
+	  <div class="tab-content">
+	    <div id="menu2" class="container tab-pane"><br>
+	      <h2 class="alert alert-info" style="width: 600px;">내 클래스의 예약내역</h2>
+	        <table class="table table-bordered" style="width: 600px;">
+	          <tr align="center">
+	          	<th>번호</th>
+	          	<th>방문 형태</th>
+	          	<th>방문 예정일</th>
+	          	<th>방문 시각</th>
+	          </tr>
+	          <c:forEach var="tfdto" items="${tflist }" varStatus="i">
+	            <tr align="center">
+	              <td>${i.count }</td>
+	              <td>${tfdto.res_visit }</td>
+	              <td>
+	              	<c:if test="${tfdto.res_norm_date!=null }">
+	              	  ${tfdto.res_norm_date }
+	              	</c:if>
+	              	<c:if test="${tfdto.res_rout_date!=null }">
+	                  ${tfdto.res_rout_date }
+	                </c:if>
+	              </td>
+	                
+	              <td>${tfdto.res_time }</td>
+	            </tr>
+	          </c:forEach>
+	       </table>
+	    </div>
+	  </div>
+    </c:if>
     
+    <!-- 펫시터 예약 -->
+    <c:if test="${mdto.status==2 }">
+	  <div class="tab-content">
+	    <div id="menu2" class="container tab-pane"><br>
+	      <h2 class="alert alert-info" style="width: 600px;">내 클래스의 예약내역</h2>
+	        <table class="table table-bordered" style="width: 600px;">
+	          <tr align="center">
+	          	<th>번호</th>
+	          	<th>방문 형태</th>
+	          	<th>방문 예정일</th>
+	          	<th>방문 시각</th>
+	          </tr>
+	          <c:forEach var="pfdto" items="${pflist }" varStatus="i">
+	            <tr align="center">
+	              <td>${i.count }</td>
+	              <td>${pfdto.res_visit }</td>
+	              <td>
+	                <c:if test="${pfdto.res_norm_date!=null }">
+		              ${pfdto.res_norm_date }
+		            </c:if>
+		            <c:if test="${pfdto.res_rout_date!=null }">
+		              ${pfdto.res_rout_date }
+		            </c:if>
+	              </td>
+	              
+	              
+	              <td>${pfdto.res_time }</td>
+	            </tr>
+	          </c:forEach>
+	       </table>
+	    </div>
+	  </div>
+    </c:if>
   </div>
- </div>
-</c:if>
-  
-  <!-- 훈련사회원의 경우 내 클래스의 예약내역만 보이도록 -->
-  <c:if test="${status==1 }">
-  
-  <div class="container mt-3">
-  <h2>MyPage</h2>
-  <br>
-  
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" data-bs-toggle="tab" href="#home">내 클래스의 예약내역</a>
-      </li>
-    </ul>
-    
-    <!-- Tab panes -->
-  <div class="tab-content">
-    <div id="home" class="container tab-pane active"><br>
-      <h2 class="alert alert-info" style="width: 600px;">내 클래스의 예약내역</h2>
-        <table class="table table-bordered" style="width: 600px;">
-          <c:forEach var="tfdto" items="${tflist }" varStatus="i">
-            <tr>
-              <td>${i.count }</td>
-              <td>${tfdto.res_visit }</td>
-              
-              <c:if test="${dto.res_norm_date!=null }">
-                <td>${tfdto.res_norm_date }</td>
-              </c:if>
-              <c:if test="${dto.res_rout_date!=null }">
-                <td>${tfdto.res_rout_date }</td>
-              </c:if>
-              
-              <td>${tfdto.res_time }</td>
-            </tr>
-          </c:forEach>
-       </table>
-    </div>
-  </div>
- </div>
-</c:if>
-
-<!-- 파트너회원의 경우 내 클래스의 예약내역만 보이도록 -->
-<c:if test="${status==2 }">
-  
-  <div class="container mt-3">
-  <h2>MyPage</h2>
-  <br>
-  
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" data-bs-toggle="tab" href="#home">내 클래스의 예약내역</a>
-      </li>
-    </ul>
-    
-    <!-- Tab panes -->
-  <div class="tab-content">
-    <div id="home" class="container tab-pane active"><br>
-      <h2 class="alert alert-info" style="width: 600px;">내 클래스의 예약내역</h2>
-        <table class="table table-bordered" style="width: 600px;">
-          <c:forEach var="pfdto" items="${pflist }" varStatus="i">
-            <tr>
-              <td>${i.count }</td>
-              <td>${pfdto.res_visit }</td>
-              
-              <c:if test="${dto.res_norm_date!=null }">
-                <td>${pfdto.res_norm_date }</td>
-              </c:if>
-              <c:if test="${dto.res_rout_date!=null }">
-                <td>${pfdto.res_rout_date }</td>
-              </c:if>
-              
-              <td>${pfdto.res_time }</td>
-            </tr>
-          </c:forEach>
-       </table>
-    </div>
-  </div>
- </div>
-</c:if>
-
+ </div>  
 </body>
 </html>
