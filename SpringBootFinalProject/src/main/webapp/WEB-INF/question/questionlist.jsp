@@ -165,10 +165,8 @@ ul.q_category li
 		//alert(cate);
 		$("#searchword").val(cate);
 		$("#btn").trigger("click");
-	})
-	
+	});
 	</script>
-
 	<div style="width:85%; margin-top:12%; ">
 	<p style="color:gray;">전체 글 ${count }개 &nbsp;&nbsp;&nbsp;
 		<button type="button" class="btn btn-light" onclick="location.href='form'">
