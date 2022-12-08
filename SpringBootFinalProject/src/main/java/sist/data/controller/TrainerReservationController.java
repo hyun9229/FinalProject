@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import sist.data.dto.AnimalDto;
@@ -77,12 +78,12 @@ public class TrainerReservationController {
 	
 	//insert
 	@PostMapping("/trainer/insert")
-	public String resform(@ModelAttribute ReservationDto dto)
+	@ResponseBody
+	public void resform(@ModelAttribute ReservationDto dto)
 	{
 			
 		//insert
 		service.insertReservation(dto);
-			
-		return "/reservation/payment";
+		
 	}
 }
