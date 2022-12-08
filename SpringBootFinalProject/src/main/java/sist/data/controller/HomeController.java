@@ -95,6 +95,8 @@ public class HomeController {
 		List<ReservationDto> pflist=rservice.getDataByPFNum(partnerprof_num);
 		model.addAttribute("pflist", pflist);
 		}
+				
+		model.addAttribute("mdto", mdto);
 		
 		return "/member/mypage";
 	}
