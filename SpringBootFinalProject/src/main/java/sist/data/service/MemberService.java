@@ -72,7 +72,13 @@ public class MemberService implements MemberServiceInter {
 		// TODO Auto-generated method stub
 		mapperInter.updateMember(dto);
 	}
-
+	
+	@Override
+	public void updateMemberPass(MemberDto dto) {
+		// TODO Auto-generated method stub
+		mapperInter.updateMemberPass(dto);
+	}
+	
 	@Override
 	public int getMaxNum() {
 		// TODO Auto-generated method stub
@@ -102,6 +108,8 @@ public class MemberService implements MemberServiceInter {
 		// TODO Auto-generated method stub
 		return mapperInter.getMNumByMName(mem_name);
 	}
+
+	
 
 
 }

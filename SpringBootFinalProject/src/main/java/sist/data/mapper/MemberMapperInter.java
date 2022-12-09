@@ -27,6 +27,8 @@ public interface MemberMapperInter {
 	public MemberDto getDataByNum(String mem_num);
 	//정보 수정
 	public void updateMember(MemberDto dto);
+	//비밀번호 수정
+	public void updateMemberPass(MemberDto dto);
 	//maxnum 구하기
 	public int getMaxNum();
 	//훈련사로 status update(status=1)

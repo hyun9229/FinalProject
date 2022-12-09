@@ -169,4 +169,29 @@ public class MemberController {
 				
 		return status;
 	}
+	
+	@PostMapping("/update")
+	public String update(MemberDto dto) {
+		service.updateMember(dto);
+		
+		return "redirect:mypage";
+	}
+	
+	@PostMapping("/updatepass")
+	public String updatepass(MemberDto dto) {
+		service.updateMemberPass(dto);
+		
+		return "redirect:mypage";
+	}
+	
+	@GetMapping("/delete")
+	public String delete(String mem_num, HttpSession session) {
+		
+		service.deleteMember(mem_num);
+		
+		session.removeAttribute("loginok");
+		session.removeAttribute("myid");
+		
+		return "redirect:login/main";
+	}
 }

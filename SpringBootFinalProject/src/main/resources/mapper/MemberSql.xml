@@ -26,7 +26,10 @@
     select * from member where mem_num=#{mem_num}
   </select>
   <update id="updateMember" parameterType="member">
-    update member set mem_pass=#{mem_pass},mem_name=#{mem_name},mem_email=#{mem_email},mem_phone=#{mem_phone},mem_addr=#{mem_addr} where mem_num=#{mem_num}
+    update member set mem_email=#{mem_email},mem_phone=#{mem_phone},mem_addr=#{mem_addr} where mem_num=#{mem_num}
+  </update>
+  <update id="updateMemberPass" parameterType="member">
+    update member set mem_pass=#{mem_pass} where mem_num=#{mem_num}
   </update>
   <select id="getMaxNum" resultType="int">
     select max(mem_num) from member
