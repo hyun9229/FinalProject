@@ -476,9 +476,9 @@ function del(cart_num){
 <script type="text/javascript">
   $(".updateform").hide();
   $(".passcheck").click(function(){
-	  //console.log($("#pass").val());
-	  //console.log($("#pass").attr('class'));
-	  if($("#uppass").val() != $("#pass").attr('class')) {
+	  //console.log($("#uppass").val());
+	  //console.log($("#uppass").attr('class'));
+	  if($("#uppass").val() != $("#uppass").attr('class')) {
 		  alert("비밀번호를 다시 확인해주세요.");
 	  }
 	  else{
