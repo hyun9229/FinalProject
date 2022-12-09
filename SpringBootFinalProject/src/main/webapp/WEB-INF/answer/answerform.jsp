@@ -90,12 +90,12 @@ img.ani{
 				<img src="${root }/image/question.png" alt="질문" style="width: 54px; height: 39px; margin-right: 13px;float:left;">
 				<p style="font-size: 25px; font-weight: 600; line-height:35px; margin-left: 60px; color:black; ">
 				${qdto.que_subject }</p> 
-				<p style="margin-left: 70px; margin-top: -13px;">${qdto.mem_name }님의 반려동물 &nbsp; | &nbsp;${andto.ani_name }
+				<p style="margin-left: 70px; margin-top: -13px;">${qdto.mem_name }님의 반려동물 &nbsp; | &nbsp; ${andto.ani_name }
 					 <c:if test="${andto.ani_type=='강아지' }">
-						( <img src="${root }/image/ani_dog.png" class="ani">)
+						 <img src="${root }/image/ani_dog.png" class="ani">
 					</c:if> 
 					<c:if test="${andto.ani_type=='고양이' }">
-						(<img src="${root }/image/ani_cat.png" class="ani">)
+						<img src="${root }/image/ani_cat.png" class="ani">
 					</c:if>
 				</p>
 					<div style="padding:10px 20px 10px 20px;">
