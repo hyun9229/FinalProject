@@ -3,9 +3,12 @@
 ## 반려동물 케어 서비스 
 
 FinalProject
-참여 인원 6명
+
+참여인원 6명
+
+
 ---
-##:sunny: Introduce
+:sunny: Introduce
 
 
 반려동물을 키우는 인구가 증가함으로 인해 주인을 대신해 반려동물을 전문인에게 맡겨
@@ -18,7 +21,7 @@ FinalProject
 
 
 ---
-##:raising_hand: 맡은 기능
+:raising_hand: 맡은 기능
 
 파트너(펫시터,훈련사) 지원, 파트너 프로필 작성, 파트너 소개페이지 구현
 
@@ -26,4 +29,4 @@ FinalProject
 ---
 
 
-##구현한 이미지 
+구현 기능 이미지 
