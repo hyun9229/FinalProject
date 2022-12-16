@@ -25,19 +25,6 @@ FinalProject
 파트너(펫시터,훈련사) 지원, 파트너 프로필 작성, 파트너 소개페이지 구현
 
 
-## :star2: 구현한 기능
 
-### ***파트너 지원하기***
-![12-1](https://user-images.githubusercontent.com/114386418/207821904-415e7522-37c8-4875-9e70-e10aca48c057.gif)
-
-<p align="center">
-<img src="https://user-images.githubusercontent.com/114386418/207828144-cc98ee14-c300-4ef5-b7ea-9a6bc9ac37c5.png" width="400">
-<img src="https://user-images.githubusercontent.com/114386418/207825168-44873486-1887-4ccf-a69e-091648b335a6.png" width="400">
-</p>
-
-
-
-### ***파트너 프로필 작성, 훈련사 소개***
-![12-2](https://user-images.githubusercontent.com/114386418/207828734-bb1c23b8-c17f-4bf0-bfe5-4e4e272e8beb.gif)
 
 
